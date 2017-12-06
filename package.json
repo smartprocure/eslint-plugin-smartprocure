@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
+    "lint-fix": "npm run lint -- --fix",
+    "lint-ci": "npm run lint -- -o lint-results.json -f json",
     "test": "jest src",
     "test-ci": "npm test -- --outputFile=test-results.json --json",
-    "lint-ci": "npm run lint -- -o lint-results.json -f json",
-    "duti:fix": "",
-    "duti": ""
+    "fmt": "prettier --write src/**/*.*",
+    "duti:fix": "npm run lint-fix && npm run fmt",
+    "duti": "duti"
   },
   "repository": {
     "type": "git",
