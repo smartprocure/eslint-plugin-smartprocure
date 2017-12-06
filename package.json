@@ -17,10 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/smartprocure/eslint-plugin-smartprocure.git"
   },
-  "keywords": [
-    "eslint",
-    "eslint-plugin"
-  ],
+  "keywords": ["eslint", "eslint-plugin"],
   "author": "SmartProcure",
   "license": "MIT",
   "bugs": {
@@ -30,9 +27,10 @@
     "semi": false,
     "singleQuote": true
   },
-  "homepage": "https://github.com/smartprocure/eslint-plugin-smartprocure#readme",
+  "homepage":
+    "https://github.com/smartprocure/eslint-plugin-smartprocure#readme",
   "devDependencies": {
-    "duti": "0.9.3",
+    "duti": "^0.9.5",
     "eslint": "^4.12.1",
     "eslint-config-smartprocure": "^1.1.0",
     "jest": "^21.2.1",
