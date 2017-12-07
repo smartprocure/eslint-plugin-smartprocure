@@ -2,7 +2,7 @@
   "name": "eslint-plugin-smartprocure",
   "version": "1.0.1",
   "description": "ESLint Plugins made for SmartProcure",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint src",
     "lint-fix": "npm run lint -- --fix",
@@ -17,10 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/smartprocure/eslint-plugin-smartprocure.git"
   },
-  "keywords": [
-    "eslint",
-    "eslint-plugin"
-  ],
+  "keywords": ["eslint", "eslint-plugin"],
   "author": "SmartProcure",
   "license": "MIT",
   "bugs": {
@@ -30,7 +27,8 @@
     "semi": false,
     "singleQuote": true
   },
-  "homepage": "https://github.com/smartprocure/eslint-plugin-smartprocure#readme",
+  "homepage":
+    "https://github.com/smartprocure/eslint-plugin-smartprocure#readme",
   "devDependencies": {
     "duti": "^0.9.5",
     "eslint": "^4.12.1",
