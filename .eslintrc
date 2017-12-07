@@ -1,0 +1,6 @@
+{
+  "extends": "smartprocure",
+  "env": {
+    "node": true
+  }
+}
