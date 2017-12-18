@@ -1,6 +1,23 @@
 let _ = require('lodash/fp')
 
-let bannedMethods = ['map', 'reduce', 'concat', 'includes']
+let bannedMethods = [
+  'map',
+  'reduce',
+  'concat',
+  'includes',
+  'sort',
+  'every',
+  'filter',
+  'find',
+  'forEach',
+  'indexOf',
+  'join',
+  'reduceRight',
+  'reverse',
+  'slice',
+  'some',
+  'sort'
+]
 
 module.exports = {
   create: ctx => ({
