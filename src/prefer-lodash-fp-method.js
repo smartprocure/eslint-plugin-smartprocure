@@ -3,9 +3,6 @@ let _ = require('lodash/fp')
 let bannedMethods = ['map', 'reduce', 'concat', 'includes']
 
 module.exports = {
-  meta: {
-    fixable: 'code'
-  },
   create: ctx => ({
     MemberExpression(node) {
       let method = _.get('property.name', node)
