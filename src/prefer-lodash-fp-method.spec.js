@@ -1,7 +1,8 @@
 /* eslint-env jest */
 
 let { RuleTester } = require('eslint')
-let rule = require('./no-lodash-constant')
+let _ = require('lodash/fp')
+let rule = require('./prefer-lodash-fp-method')
 
 RuleTester.setDefaultConfig({
   parserOptions: {
@@ -12,11 +13,9 @@ RuleTester.setDefaultConfig({
 let ruleTester = new RuleTester()
 
 let validCode = [
-  `let _ = require('lodash/fp')
+  `let _ = require('lodash/fp');
   _.map(x => x, [])`,
-  `let bob = require('lodash/fp')
-  bob.map(x => x, [])`,
-  `let _ = require('lodash/fp')
+  `let _ = require('lodash/fp');
   _.includes('cheese', ['cheese'])`
 ]
 
@@ -32,13 +31,16 @@ let invalidCode = [
 ]
 
 ruleTester.run('prefer-lodash-fp-methods', rule, {
-  valid: validCode.map(code => ({ code })),
-  invalid: invalidCode.map(({ code, method }) => ({
-    code,
-    errors: [
-      {
-        message: `Use _.${method}`
-      }
-    ]
-  }))
+  valid: _.map(code => ({ code }), validCode),
+  invalid: _.map(
+    ({ code, method }) => ({
+      code,
+      errors: [
+        {
+          message: `Use the lodash alternative for ${method}`
+        }
+      ]
+    }),
+    invalidCode
+  )
 })
