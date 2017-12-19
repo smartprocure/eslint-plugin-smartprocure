@@ -40,7 +40,9 @@ let validCode = [
   `let _ = require('lodash/fp');
   _.some(x, y)`,
   `let _ = require('lodash/fp');
-  _.sort(x, y)`
+  _.sort(x, y)`,
+  `let _ = require('lodash/fp');
+  _.lastIndexOf(x, y)`
 ]
 
 let invalidCode = [
@@ -57,7 +59,8 @@ let invalidCode = [
   { code: `y.reverse(x)`, method: 'reverse' },
   { code: `y.slice(x)`, method: 'slice' },
   { code: `y.some(x)`, method: 'some' },
-  { code: `y.sort(x)`, method: 'sort' }
+  { code: `y.sort(x)`, method: 'sort' },
+  { code: `y.lastIndexOf(x)`, method: 'lastIndexOf' }
 ]
 
 ruleTester.run('prefer-lodash-fp-methods', rule, {

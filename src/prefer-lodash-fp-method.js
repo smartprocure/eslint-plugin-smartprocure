@@ -16,7 +16,8 @@ let bannedMethods = [
   'reverse',
   'slice',
   'some',
-  'sort'
+  'sort',
+  'lastIndexOf'
 ]
 
 module.exports = {
