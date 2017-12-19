@@ -85,18 +85,12 @@ module.exports = {
           fix(fixer) {
             let methodArgs = node.parent.arguments
             let wontFix = fixer.insertTextAfter(node, '')
-            if (methodArgs.length > bannedMethods[method].arity) {
-              return wontFix
-            }
             let firstMethodArg = methodArgs[0]
             let firstMethodArgType = firstMethodArg.type
             if (
-              firstMethodArgType !== 'FunctionExpression' &&
-              firstMethodArgType !== 'ArrowFunctionExpression'
-            ) {
-              return wontFix
-            }
-            if (
+              methodArgs.length > bannedMethods[method].arity ||
+              (firstMethodArgType !== 'FunctionExpression' &&
+                firstMethodArgType !== 'ArrowFunctionExpression') ||
               firstMethodArg.params.length > bannedMethods[method].iteratorArity
             ) {
               return wontFix
