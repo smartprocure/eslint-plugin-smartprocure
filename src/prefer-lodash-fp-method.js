@@ -1,36 +1,114 @@
 let _ = require('lodash/fp')
 
-let bannedMethods = [
-  'map',
-  'reduce',
-  'concat',
-  'includes',
-  'sort',
-  'every',
-  'filter',
-  'find',
-  'forEach',
-  'indexOf',
-  'join',
-  'reduceRight',
-  'reverse',
-  'slice',
-  'some',
-  'sort',
-  'lastIndexOf'
-]
+let bannedMethods = {
+  map: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  reduce: {
+    iteratorArity: 2,
+    arity: 3
+  },
+  concat: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  includes: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  sort: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  every: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  filter: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  find: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  forEach: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  indexOf: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  join: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  reduceRight: {
+    iteratorArity: 2,
+    arity: 3
+  },
+  reverse: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  slice: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  some: {
+    iteratorArity: 1,
+    arity: 1
+  },
+  lastIndexOf: {
+    iteratorArity: 1,
+    arity: 1
+  }
+}
 
 module.exports = {
+  meta: {
+    fixable: 'code'
+  },
   create: ctx => ({
     MemberExpression(node) {
+      let sourceCode = ctx.getSourceCode()
       let method = _.get('property.name', node)
       let fromLodash =
         _.get('object.type', node) === 'Identifier' &&
         _.get('object.name', node) === '_'
-      if (!fromLodash && _.includes(method, bannedMethods)) {
+      if (!fromLodash && _.includes(method, Object.keys(bannedMethods))) {
         ctx.report({
           node,
-          message: `Use the lodash alternative for ${method}`
+          message: `Use the lodash alternative for ${method}`,
+          fix(fixer) {
+            let methodArgs = node.parent.arguments
+            if (methodArgs.length > bannedMethods[method].arity) {
+              return fixer.insertTextAfter(node, '')
+            }
+            let firstMethodArg = methodArgs[0]
+            let firstMethodArgType = firstMethodArg.type
+            if (
+              firstMethodArgType !== 'FunctionExpression' &&
+              firstMethodArgType !== 'ArrowFunctionExpression'
+            ) {
+              return fixer.insertTextAfter(node, '')
+            }
+            if (
+              firstMethodArg.params.length > bannedMethods[method].iteratorArity
+            ) {
+              return fixer.insertTextAfter(node, '')
+            }
+            let parent = node.parent
+            return fixer.replaceText(
+              parent,
+              `_.${method}(${_.join(
+                ', ',
+                _.map(n => sourceCode.getText(n), node.parent.arguments)
+              )}, ${sourceCode.getText(node.object)})`
+            )
+          }
         })
       }
     }
