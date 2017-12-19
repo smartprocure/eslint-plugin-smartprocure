@@ -84,8 +84,9 @@ module.exports = {
           message: `Use the lodash alternative for ${method}`,
           fix(fixer) {
             let methodArgs = node.parent.arguments
+            let wontFix = fixer.insertTextAfter(node, '')
             if (methodArgs.length > bannedMethods[method].arity) {
-              return fixer.insertTextAfter(node, '')
+              return wontFix
             }
             let firstMethodArg = methodArgs[0]
             let firstMethodArgType = firstMethodArg.type
@@ -93,12 +94,12 @@ module.exports = {
               firstMethodArgType !== 'FunctionExpression' &&
               firstMethodArgType !== 'ArrowFunctionExpression'
             ) {
-              return fixer.insertTextAfter(node, '')
+              return wontFix
             }
             if (
               firstMethodArg.params.length > bannedMethods[method].iteratorArity
             ) {
-              return fixer.insertTextAfter(node, '')
+              return wontFix
             }
             let parent = node.parent
             return fixer.replaceText(
