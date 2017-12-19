@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-smartprocure",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "ESLint Plugins made for SmartProcure",
   "main": "src/index.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "lint-fix": "npm run lint -- --fix",
     "lint-ci": "npm run lint -- -o lint-results.json -f json",
     "test": "jest src",
+    "test-watch": "npm test -- --watch",
     "test-ci": "npm test -- --outputFile=test-results.json --json",
     "fmt": "prettier --write src/**/*.*",
     "duti:fix": "npm run lint-fix && npm run fmt",
