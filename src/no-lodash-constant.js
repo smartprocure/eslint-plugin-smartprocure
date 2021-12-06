@@ -4,8 +4,8 @@ module.exports = {
   meta: {
     fixable: 'code'
   },
-  create: ctx => ({
-    CallExpression(node) {
+  create: (ctx) => ({
+    CallExpression (node) {
       if (
         _.isEqual(_.get('callee.object.name', node), '_') &&
         _.isEqual(_.get('callee.property.name', node), 'constant')
@@ -21,7 +21,7 @@ module.exports = {
         ctx.report({
           node,
           message: 'Do not use _.constant',
-          fix: fixer => fixer.replaceText(node, `() => ${argRaw}`)
+          fix: (fixer) => fixer.replaceText(node, `() => ${argRaw}`)
         })
       }
     }
