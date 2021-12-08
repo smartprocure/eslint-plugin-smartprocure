@@ -27,10 +27,6 @@
   "bugs": {
     "url": "https://github.com/smartprocure/eslint-plugin-smartprocure/issues"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  },
   "homepage": "https://github.com/smartprocure/eslint-plugin-smartprocure#readme",
   "devDependencies": {
     "duti": "0.15.2",
