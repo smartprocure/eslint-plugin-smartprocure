@@ -1,7 +1,7 @@
-let noLodashConstant = require("./no-lodash-constant");
+let noLodashConstant = require('./no-lodash-constant')
 
 module.exports = {
   rules: {
-    "no-lodash-constant": noLodashConstant,
-  },
-};
+    'no-lodash-constant': noLodashConstant
+  }
+}

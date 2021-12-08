@@ -10,9 +10,7 @@
     "test": "jest src",
     "test-watch": "npm test -- --watch",
     "test-ci": "npm test -- --outputFile=test-results.json --json",
-    "fmt": "prettier --write src/**/*.*",
-    "duti:fix": "npm run lint-fix && npm run fmt",
-    "duti": "duti"
+    "fmt": "prettier --write src/**/*.*"
   },
   "repository": {
     "type": "git",
@@ -29,7 +27,6 @@
   },
   "homepage": "https://github.com/smartprocure/eslint-plugin-smartprocure#readme",
   "devDependencies": {
-    "duti": "0.15.2",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-jest": "25.3.0",
     "eslint-plugin-node": "11.1.0",

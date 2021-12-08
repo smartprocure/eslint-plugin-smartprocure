@@ -7,6 +7,8 @@
 * Add eslint-plugin-node
 * Bump and pin all packages to latest version
 * Update .eslintrc file
+* Remove duti as it is also a sort of circular dependency.
+* Switch prettier rules to eslint.
 
 # 1.1.0
 
