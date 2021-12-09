@@ -1,6 +1,45 @@
 {
-  "extends": "smartprocure",
+  "extends": [
+    "eslint:recommended",
+    "standard",
+  ],
+  "plugins": [
+    "node",
+    "jest"
+  ],
   "env": {
-    "node": true
-  }
+    "node": true,
+    "jest": true
+  },
+  "settings": {
+    "lodash": {
+      "pragma": "_"
+    }
+  },
+  rules: {
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"],
+    "prefer-const": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "eqeqeq": ["warn", "always"],
+    "arrow-body-style": ["error", "as-needed"],
+    "prefer-spread": "error",
+    "prefer-rest-params": "warn",
+    "prefer-template": "error",
+    "no-duplicate-imports": "error",
+    "wrap-iife": "error",
+    "no-console": ["warn", { allow: ["warn", "error", "info"] }],
+    "no-unneeded-ternary": "error",
+    "one-var": ["error", "never"],
+    "no-empty": "off",
+    "no-implicit-coercion": ["error", { allow: ["!!", "~"] }],
+    "no-return-assign": "error",
+    "no-return-await": "error",
+    "object-shorthand": ["error", "always", { avoidExplicitReturnArrows: true }],
+    "jest/no-disabled-tests": "error",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/valid-expect": "error",
+  },
+
 }

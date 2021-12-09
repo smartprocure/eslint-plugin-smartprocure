@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-smartprocure",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "ESLint Plugins made for SmartProcure",
   "main": "src/index.js",
   "scripts": {
@@ -10,9 +10,7 @@
     "test": "jest src",
     "test-watch": "npm test -- --watch",
     "test-ci": "npm test -- --outputFile=test-results.json --json",
-    "fmt": "prettier --write src/**/*.*",
-    "duti:fix": "npm run lint-fix && npm run fmt",
-    "duti": "duti"
+    "fmt": "prettier --write src/**/*.*"
   },
   "repository": {
     "type": "git",
@@ -27,16 +25,15 @@
   "bugs": {
     "url": "https://github.com/smartprocure/eslint-plugin-smartprocure/issues"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  },
   "homepage": "https://github.com/smartprocure/eslint-plugin-smartprocure#readme",
   "devDependencies": {
-    "duti": "^0.9.5",
-    "eslint": "^4.12.1",
-    "eslint-config-smartprocure": "^1.1.0",
-    "jest": "^21.2.1",
-    "prettier": "^1.9.1"
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-jest": "25.3.0",
+    "eslint-plugin-node": "11.1.0",
+    "jest": "27.3.1",
+    "prettier": "2.4.1"
+  },
+  "peerDependencies": {
+    "eslint": ">=0.8.0"
   }
 }

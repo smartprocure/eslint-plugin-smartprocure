@@ -72,7 +72,7 @@ module.exports = {
     fixable: 'code'
   },
   create: ctx => ({
-    MemberExpression(node) {
+    MemberExpression (node) {
       let sourceCode = ctx.getSourceCode()
       let method = _.get('property.name', node)
       let fromLodash =
@@ -82,7 +82,7 @@ module.exports = {
         ctx.report({
           node,
           message: `Use the lodash alternative for ${method}`,
-          fix(fixer) {
+          fix (fixer) {
             let methodArgs = node.parent.arguments
             let wontFix = fixer.insertTextAfter(node, '')
             let firstMethodArg = methodArgs[0]

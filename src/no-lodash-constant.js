@@ -5,7 +5,7 @@ module.exports = {
     fixable: 'code'
   },
   create: ctx => ({
-    CallExpression(node) {
+    CallExpression (node) {
       if (
         _.isEqual(_.get('callee.object.name', node), '_') &&
         _.isEqual(_.get('callee.property.name', node), 'constant')

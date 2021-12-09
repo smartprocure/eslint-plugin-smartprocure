@@ -24,10 +24,6 @@ jobs:
           name: pre-danger
           command: git config user.email "decrapifier@govspend.us" && git config user.name "Decrapifier" && git config push.default upstream && git branch -u origin/$CIRCLE_BRANCH
           when: always
-      - run:
-          name: danger
-          command: npm run duti
-          when: always
       - deploy:
           name: Maybe Deploy
           command: |
