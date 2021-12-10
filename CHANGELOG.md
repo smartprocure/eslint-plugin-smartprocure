@@ -1,8 +1,13 @@
-# 2.2.1
+# 2.0.2
+
+* Add github actions build badge to README.
+* Fix version number mistakes in this file.
+
+# 2.0.1
 
 * Switch CI/CD pipeline from circleCI to github actions.
 
-# 2.2.0
+# 2.0.0
 
 * Add .npmrc file to always pin versions
 * Remove eslint-config-smartprocure circular dependency
