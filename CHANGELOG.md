@@ -1,3 +1,7 @@
+# 2.0.3
+
+* Update badges in README.
+
 # 2.0.2
 
 * Add github actions build badge to README.
